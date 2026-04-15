@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TaskForm } from "./TaskForm";
 import { TaskList } from "./TaskList";
+import { HTML_TAGS } from "../../../shared/constants/html-tags.constants";
 
 export function TaskBoard() {
   const [taskText, setTaskText] = useState("")
@@ -24,10 +25,12 @@ export function TaskBoard() {
     setTasks([...tasks, newTask])
     setTaskText("")
   }
-
+  const SectionTag = HTML_TAGS.SECTION
+  const H2Tag = HTML_TAGS.H2
+  
   return (
-    <section>
-      <h2>Gestión de tareas</h2>
+    <SectionTag>
+      <H2Tag>Gestión de tareas</H2Tag>
 
       <TaskForm
         taskText={taskText}
@@ -36,6 +39,6 @@ export function TaskBoard() {
       />
 
       <TaskList tasks={tasks} />
-    </section>
+    </SectionTag>
   )
 }
